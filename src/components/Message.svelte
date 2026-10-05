@@ -1,7 +1,6 @@
 <script>
     import { user as currentUser, API_URL } from "../store/auth.js";
     import { renderMarkdown, attachCopyButtons } from "../utils/markdown.js";
-    import { API_URL } from "../store/auth.js";
 
     let {
         id,
