@@ -1,0 +1,137 @@
+/* ============ THEME VARIABLES ============ */
+:root {
+    /* Light theme */
+    --bg-gradient-1: #667eea;
+    --bg-gradient-2: #764ba2;
+    --bg-gradient-3: #f093fb;
+
+    --surface: #ffffff;
+    --surface-2: #f8f9fa;
+    --surface-3: #f3f4f6;
+    --glass: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.3);
+
+    --text: #222222;
+    --text-muted: #888888;
+    --text-strong: #111111;
+
+    --border: #e5e7eb;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.15);
+
+    --accent: #667eea;
+    --accent-2: #764ba2;
+
+    --success: #10b981;
+    --error: #ef4444;
+    --warning: #f59e0b;
+}
+
+[data-theme="dark"] {
+    --bg-gradient-1: #1a1a2e;
+    --bg-gradient-2: #16213e;
+    --bg-gradient-3: #0f3460;
+
+    --surface: #1e1e2e;
+    --surface-2: #181825;
+    --surface-3: #232334;
+    --glass: rgba(30, 30, 46, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.1);
+
+    --text: #e5e5e5;
+    --text-muted: #888888;
+    --text-strong: #ffffff;
+
+    --border: #2a2a3e;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.6);
+
+    --accent: #8b9dff;
+    --accent-2: #a78bfa;
+}
+
+/* ============ RESET ============ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    transition: background 0.4s ease, color 0.4s ease;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    position: relative;
+    overflow-x: hidden;
+
+    /* Animated gradient background */
+    background: linear-gradient(
+        -45deg,
+        var(--bg-gradient-1),
+        var(--bg-gradient-2),
+        var(--bg-gradient-3),
+        var(--bg-gradient-2)
+    );
+    background-size: 400% 400%;
+    animation: gradientShift 18s ease infinite;
+}
+
+@keyframes gradientShift {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+#app {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* ============ CUSTOM SCROLLBAR ============ */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(120, 120, 140, 0.4);
+    border-radius: 10px;
+    transition: background 0.2s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(120, 120, 140, 0.7);
+}
+
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(120, 120, 140, 0.4) transparent;
+}
+
+/* ============ GLOBAL BUTTON FEEDBACK ============ */
+button {
+    transition: transform 0.1s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+button:active:not(:disabled) {
+    transform: scale(0.95);
+}
